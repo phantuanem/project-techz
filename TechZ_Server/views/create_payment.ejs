@@ -1,0 +1,71 @@
+<main>
+    <div class="container">
+        <%if(contact?.address && contact?.phone_number){%>
+            <form action="create_payment_url?voucher_code=<%=voucher_code%>" method="POST">
+                <div class="box-address">
+                    <p class="title-address">Thông tin giao hàng</p>
+                    <span>
+                        <p>Địa chỉ giao hàng:</p>
+                        <p>
+                            <%=contact.address%>
+                        </p>
+                    </span>
+                    <span>
+                        <h4>Số ĐT liên hệ:</h4>
+                        <h4>
+                            <%=contact.phone_number%>
+                        </h4>
+                    </span>
+                    <a href="/profile?form=address">Thay đổi thông tin giao hàng</a>
+                </div>
+                <div class="method-payment">
+                    <label>Chọn phương thức thanh toán</label>
+                    <div class="input-group">
+                        <input type="radio" name="bankCode" value="VNBANK" checked="true">
+                        <p>Thanh toán qua ATM-Tài khoản ngân hàng nội địa</p>
+                    </div>
+                    <div class="input-group">
+                        <input type="radio" name="bankCode" value="">
+                        <p>Cổng thanh toán VNPAYQR</p>
+                    </div>
+                    <div class="input-group">
+                        <input type="radio" name="bankCode" value="VNPAYQR">
+                        <p>Thanh toán qua ứng dụng hỗ trợ VNPAYQR</p>
+                    </div>
+                    <div class="input-group">
+                        <input type="radio" name="bankCode" value="INTCARD">
+                        <p>Thanh toán qua thẻ quốc tế</p>
+                    </div>
+                </div>
+                <%if(result_voucher){%>
+                    <div class="sum-price sum-price-small">
+                        <p>Tổng tiền:</p>
+                        <p>
+                            <%=sum_price.toLocaleString('vi', { style: 'currency' , currency: 'VND' })%>
+                        </p>
+                    </div>
+                    <div class="sum-price sum-price-small">
+                        <p>Số tiền giảm:</p>
+                        <p>
+                            <%=result_voucher.amount.toLocaleString('vi', { style: 'currency' , currency: 'VND' })%>
+                        </p>
+                    </div>
+                <%}%>
+                    <div class="sum-price">
+                        <p>Tổng tiền thanh toán:</p>
+                        <h2>
+                            <%=result_voucher ? (sum_price - result_voucher.amount).toLocaleString('vi', { style: 'currency' ,
+                                currency: 'VND' }):sum_price.toLocaleString('vi', { style: 'currency' ,
+                                currency: 'VND' }) %>
+                        </h2>
+                    </div>
+                    <button type="sublit">Thanh toán</button>
+                    </for{m>
+                    <%} else {%>
+                        <div class="notification">
+                            <p>Thông tin giao hàng của bạn chưa có hoặc chưa đầy đủ để giao hàng</p>
+                            <a href="/profile?form=address">Nhấp vào đây để cập nhật thông tin</a>
+                        </div>
+                        <%}%>
+    </div>
+</main>

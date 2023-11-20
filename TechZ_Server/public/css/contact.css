@@ -1,0 +1,51 @@
+main {
+    height: calc(100vh - 7em);
+    padding: 1em 5%;
+    position: relative;
+}
+
+.background {
+    position: absolute;
+    top: 1em;
+    left: 18%;
+    width: 20%;
+    height: calc(100% - 2em);
+    background-color: #dbdbdb;
+    z-index: 0;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    z-index: 1;
+    position: absolute;
+    width: 90%;
+    top: 1em;
+    left: 5%;
+    height: calc(100vh - 7em);
+}
+
+img.img-avata {
+    width: 25%;
+    margin-top: 1em;
+}
+
+.box {
+    margin-left: 1em;
+    margin-top: 1em;
+}
+
+img.img-icon {
+    width: 1.75em;
+    margin-right: 1.5em;
+    cursor: pointer;
+}
+
+.socials {
+    margin-top: 1em;
+}
+
+main h1 {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 35px;
+}

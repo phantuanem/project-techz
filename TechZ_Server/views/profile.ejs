@@ -1,0 +1,273 @@
+<main>
+    <div class="container">
+        <div class="main-left">
+            <div class="name-and-avata">
+                <img src="/icon/ui_essential_app_avatar_profile_icon.png" alt="" class="img-icon">
+                <h4 class="name">
+                    <%=user.name%>
+                </h4>
+            </div>
+            <ul class="select">
+                <li <%=form=='profile' ? 'class=li-selected' :''%>><a href="?form=profile"><img
+                            src="/icon/kashifarif_user_profile_person_account_icon.png" alt="">
+                        <p>Thông tin tài khoản</p>
+                    </a></li>
+                <li <%=form=='address' ? 'class=li-selected' :''%>><a href="?form=address"><img
+                            src="/icon/location_map_marker_icon.png" alt="" class="icon-location">
+                        <p>Địa chỉ và liên lạc</p>
+                    </a></li>
+                <li <%=form=='order' ? 'class=li-selected' :''%>><a href="?form=order"><img
+                            src="/icon/reciept_bill_invoice_icon.png" alt="">
+                        <p>Quản lý đơn hàng</p>
+                    </a></li>
+                <li><a href="/logout"><img src="/icon/logout_circle_r_line_icon.png" alt="">
+                        <p>Đăng xuất</p>
+                    </a></li>
+            </ul>
+        </div>
+        <div class="main-right">
+            <%if(form=='profile'){%>
+                <div class="box-info-user">
+                    <form action="/user/update" method="GET">
+                        <p class="title-info-user">Thông tin tài khoản</p>
+                        <ul>
+                            <li>
+                                <p>Họ tên</p><input type="text" value="<%=user.name%>" name="name">
+                            </li>
+                            <li>
+                                <p>Giới tính</p><span>
+                                    <input type="radio" id="male" name="sex" value="Nam">
+                                    <label for="male">Nam</label>
+                                    <input type="radio" id="female" name="sex" value="Nữ">
+                                    <label for="female">Nữ</label>
+                                </span>
+                            </li>
+                            <li>
+                                <p>Số điện thoại</p><span>**********</span>
+                            </li>
+                            <li>
+                                <p>Email</p><span>
+                                    <%=user.email%>
+                                </span>
+                            </li>
+                            <li>
+                                <p>Ngày sinh</p>
+                            </li>
+                            <li>
+                                <div class="form-change-password">
+                                    <div class="title-and-close">
+                                        <p class="title-form-change-password"><%=user.password ? 'Đổi mật khẩu':'Cập nhật mật khẩu'%></p>
+                                        <div class="btn-close-form-change-password">Đóng</div>
+                                    </div>
+                                    <%if(user.password){%>
+                                        <label for="">Mật khẩu cũ:</label>
+                                        <input type="password" name="password">
+                                    <%}%>
+                                    <label for="">Mật khẩu mới:</label>
+                                    <input type="password" name="new_password">
+                                </div>
+                            </li>
+                            <li>
+                                <div id="btn-show-form-change-password">Đổi mật khẩu</div><button>Lưu thay đổi</button>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+                <%} else if(form=='address' ){%>
+                    <div class="box-address">
+                        <div class="div-address">
+                            <% if(address || phone_number) {%>
+                                <h3>Địa chỉ và liên hệ:</h3>
+                                <span>
+                                    <p>Số điện thoại:</p>
+                                    <p>
+                                        <%=phone_number%>
+                                    </p>
+                                </span>
+                                <span>
+                                    <p>Địa chỉ:</p>
+                                    <p>
+                                        <%=address%>
+                                    </p>
+                                </span>
+                                <br>
+                                <hr>
+                                <br>
+                                <%}%>
+                                <button id="btn-show-form-update-address">Cập nhật địa chỉ và Liên hệ</button>
+                                    <div class="form-update-address">
+                                        <button id="btn-close-form-update-address">Đóng</button>
+                                        <form action="/profile/update/contact" method="GET">
+                                            <p for="" class="title-form-update-phone">Cập nhật số điện thoại</p>
+                                            <input type="text" name="phone" placeholder="Số điện thoại"
+                                                id="input-update-phone">
+                                            <button id="btn-update-phone">Lưu</button>
+                                        </form>
+                                        <br>
+                                        <hr>
+                                        <br>
+                                        <form action="/profile/update/address" method="GET">
+                                            <p class="title-form-update-address">Cập nhật địa chỉ</p>
+                                            <select id="city" name="city">
+                                                <option value="" selected>Chọn tỉnh thành</option>
+                                            </select>
+    
+                                            <select id="district" name="district">
+                                                <option value="" selected>Chọn quận huyện</option>
+                                            </select>
+    
+                                            <select id="ward" name="ward">
+                                                <option value="" selected>Chọn phường xã</option>
+                                            </select>
+                                            <label for="">Địa chỉ cụ thể</label>
+                                            <textarea name="address_detail" id="" cols="30" rows="5"></textarea>
+                                            <button id="save-address">Lưu</button>
+                                        </form>
+                                    </div>
+                                    <script
+                                        src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+                                    <script>
+                                        var citis = document.getElementById("city");
+                                        var districts = document.getElementById("district");
+                                        var wards = document.getElementById("ward");
+                                        var Parameter = {
+                                            url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+                                            method: "GET"
+                                        };
+                                        var promise = axios(Parameter);
+                                        promise.then(function (result) {
+                                            renderCity(result.data);
+                                        });
+
+                                        function renderCity(data) {
+                                            for (const x of data) {
+                                                var opt = document.createElement('option');
+                                                opt.value = x.Name;
+                                                opt.text = x.Name;
+                                                opt.setAttribute('data-id', x.Id);
+                                                citis.options.add(opt);
+                                            }
+                                            citis.onchange = function () {
+                                                district.length = 1;
+                                                ward.length = 1;
+                                                if (this.options[this.selectedIndex].dataset.id != "") {
+                                                    const result = data.filter(n => n.Id === this.options[this.selectedIndex].dataset.id);
+
+                                                    for (const k of result[0].Districts) {
+                                                        var opt = document.createElement('option');
+                                                        opt.value = k.Name;
+                                                        opt.text = k.Name;
+                                                        opt.setAttribute('data-id', k.Id);
+                                                        district.options.add(opt);
+                                                    }
+                                                }
+                                            };
+                                            district.onchange = function () {
+                                                ward.length = 1;
+                                                const dataCity = data.filter((n) => n.Id === citis.options[citis.selectedIndex].dataset.id);
+                                                if (this.options[this.selectedIndex].dataset.id != "") {
+                                                    const dataWards = dataCity[0].Districts.filter(n => n.Id === this.options[this.selectedIndex].dataset.id)[0].Wards;
+
+                                                    for (const w of dataWards) {
+                                                        var opt = document.createElement('option');
+                                                        opt.value = w.Name;
+                                                        opt.text = w.Name;
+                                                        opt.setAttribute('data-id', w.Id);
+                                                        wards.options.add(opt);
+                                                    }
+                                                }
+                                            };
+                                        }
+                                    </script>
+                        </div>
+                        <%} else if(form=='order' ){%>
+                            <div class="box-order">
+                                <ul>
+                                    <%for(let order of orders){%>
+                                        <li>
+                                            <div class="li-item created-at">
+                                                <p>Thời gian đặt hàng:</p>
+                                                <p><%=`${order.order_date.hour}:${order.order_date.minute} - ${order.order_date.date}/${order.order_date.month}/${order.order_date.year}`%></p>
+                                            </div>
+                                            <div class="li-item title-price">
+                                                <p>Tổng tiền:</p>
+                                                <p><strong>
+                                                        <%=order.total_amount.toLocaleString('vi', { style: 'currency' ,
+                                                            currency: 'VND' })%>
+                                                    </strong></p>
+                                            </div>
+                                            <div class="li-order-status">
+                                                <h4><%=
+                                                        order.new==1 && order.processing==0 && order.shipping==0 && order.delivered==0 ? 'Chờ xác nhận':
+                                                        order.new==1 && order.processing==1 && order.shipping==0 && order.delivered==0 ? 'Đang chuẩn bị hàng':
+                                                        order.new==1 && order.processing==1 && order.shipping==1 && order.delivered==0 ? 'Đang giao hàng':
+                                                        order.new==1 && order.processing==1 && order.shipping==1 && order.delivered==1 ? 'Đã giao hàng':'Đơn hàng đã hủy'
+                                                    %></h4>
+                                                <a href="/profile?form=order-detail&id=<%=order.orderID%>">Xem chi tiết</a>
+                                            </div>
+                                            <hr>
+                                        </li>
+                                        <%}%>
+                                </ul>
+                            </div>
+                            <%} else if(form == 'order-detail' && order){%>
+                                <div class="box-order-detail">
+                                    <a href="/profile?form=order">Trở về</a>
+                                    <h3>Chi tiết đơn hàng</h3>
+                                    <p>MÃ ĐH: <strong><%=order.orderID%></strong></p>
+                                    <p>Thời gian đặt hàng: <%=`${order.order_date.minute}:${order.order_date.hour}-${order.order_date.date}/${order.order_date.month}/${order.order_date.year}`%></p>
+                                    <p>Số ĐT: <%=order.phone_number%></p>
+                                    <p>Địa chỉ: <%=order.delivery_address%></p>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>STT</th>
+                                                <th>Tên sản phẩm</th>
+                                                <th>Bảo hành (tháng)</th>
+                                                <th>Số lượng</th>
+                                                <th>Đơn giá</th>
+                                                <th>Thành tiền</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <%for(let i=0;i<order.list.length;i++){%>
+                                                <tr>
+                                                    <td><%=i+1%></td>
+                                                    <td><a href="product/<%=order.list[i].productID%>"><%=order.list[i].name%></a></td>
+                                                    <td><%=order.list[i].quarranty_period%></td>
+                                                    <td><%=order.list[i].quantity%></td>
+                                                    <td><%=order.list[i].price.toLocaleString('vi', { style: 'currency' ,
+                                                        currency: 'VND' })%></td>
+                                                    <td><%=(order.list[i].price * order.list[i].quantity).toLocaleString('vi', { style: 'currency' ,
+                                                        currency: 'VND' })%></td>
+                                                </tr>
+                                            <%}%>
+                                        </tbody>
+                                    </table>
+                                    <p><%=order.payment_method == 'COD' ? 'Thanh toán khi nhận hàng':'Thanh toán qua trực tuyến'%></p>
+                                    <p>Trạng thái đơn hàng: <strong><%=
+                                        order.new==1 && order.processing==0 && order.shipping==0 && order.delivered==0 ? 'Chờ xác nhận':
+                                        order.new==1 && order.processing==1 && order.shipping==0 && order.delivered==0 ? 'Đang chuẩn bị hàng':
+                                        order.new==1 && order.processing==1 && order.shipping==1 && order.delivered==0 ? 'Đang giao hàng':
+                                        order.new==1 && order.processing==1 && order.shipping==1 && order.delivered==1 ? 'Đã giao hàng':'Đơn hàng đã hủy'
+                                    %></strong></p>
+                                    <%if(order.voucher){%>
+                                    <h4 class="h4-small">Thành tiền: <strong><%=(order.voucher ? (order.total_amount + order.voucher.amount):order.total_amount).toLocaleString('vi', { style: 'currency' ,
+                                        currency: 'VND' })%></strong></h4>
+                                    <h4 class="h4-small">Giảm giá: <strong><%=order.voucher.amount.toLocaleString('vi', { style: 'currency' ,
+                                        currency: 'VND' })%></strong></h4>
+                                    <%}%>
+                                    <span>
+                                        <%if(order.new==1 && order.processing==0 && order.shipping==0 && order.delivered==0){%>
+                                            <a class="cancel-order" href="/cancel/order?id=<%=order.orderID%>">Hủy đơn hàng</a>    
+                                        <%} else if(order.new==1 && order.processing==1 && order.shipping==1 && order.delivered==0){%>
+                                            <a class="cancel-order" href="/delivered/order?id=<%=order.orderID%>">Đã nhận hàng</a>
+                                        <%}%>
+                                    </span>
+                                    <h4>Tổng tiền: <strong><%=order.total_amount.toLocaleString('vi', { style: 'currency' ,
+                                        currency: 'VND' })%></strong></h4>
+                                </div>
+                            <%}%>
+                    </div>
+        </div>
+</main>

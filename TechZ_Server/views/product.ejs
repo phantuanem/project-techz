@@ -1,0 +1,130 @@
+<main>
+    <div class="breadcrumb-list">
+        <ol>
+            <li><a href="/"><img src="/icon/home_house_icon.png" alt=""><span>Trang chủ</span></a></li>
+            <li><a href=""><%=product.name_brand%></a></li>
+            <li><a href=""><%=product.category_name%></a></li>
+            <li><%=product.name%></li>
+        </ol>
+    </div>
+    <div class="contsiner">
+        <div class="box-image">
+            <img src="<%=product.urls[0]%>" alt="" class="img-product">
+            <% if(product.urls.length > 1){ %>
+                <div class="box-image-smaill">
+                    <ul>
+                        <% for(var i=0;i<product.urls.length;i++){ %>
+                            <li <%= i==0 ? `class=li-select`:"" %>>
+                                <img src="<%=product.urls[i]%>" alt="">
+                            </li>
+                        <% } %>
+                    </ul>
+                </div>
+            <% } %>
+        </div>
+        <div class="right">
+            <h1><%=product.name%></h1>
+            <% if(product.price != 0){ %>
+                <del class="price"><%= product.price.toLocaleString('vi', { style: 'currency', currency: 'VND' }) %></del>
+            <% } %>
+            <p class="sale_price"><%= product.sale_price.toLocaleString('vi', { style: 'currency', currency: 'VND' }) %></p>
+            <div class="btn">
+                <button id="btn-buy">Mua</button>
+                <button id="add-to-card" data-id="<%=product.id%>"><img src="/icon/add_cart_shopping_icon.png" alt="" class="img-add-to-cart"></button>
+            </div>
+            <!-- <%if(product.category_slug == 'laptop'){ %>
+                <a href="" class="btn-suggest">
+                        <p>Xem thêm về  Laptop <%=product.name_brand.charAt(0).toUpperCase() + product.name_brand.slice(1)%></p>
+                    
+                    <img src="/icon/arrow_next_right_icon.png" alt="" class="img-arrow-next-right">
+                </a>
+            <% } %> -->
+            <div class="policy <%= (product.category_slug == 'keyboard' || product.category_slug == 'monitor' || product.category_slug == 'mousepad' || product.category_slug == 'mouse' || product.category_slug == 'headphone') ? 'policy-content':'' %>">
+                <ul>
+                    <%if(product.category_slug == 'laptop'){ %>
+                        <li><strong>&check;</strong> Bảo hành chính hãng <%=product.quarranty_period%> tháng.</li>
+                        <li><strong>&check;</strong>  Hỗ trợ đổi mới trong 7 ngày. </li>
+                        <li><strong>&check;</strong>  Windows bản quyền tích hợp. </li>
+                        <li><strong>&check;</strong>  Miễn phí giao hàng toàn quốc.</li>
+                    <% } %>
+                    <%if(product.category_slug == 'keyboard' || product.category_slug == 'mouse' || product.category_slug == 'headphone'){ %>
+                        <li><h3>Thông tin chung:</h3></li>
+                        <li><strong>Hãng sản xuất:</strong> <%=product.name_brand.charAt(0).toUpperCase() + product.name_brand.slice(1)%></li>
+                        <li><strong>Tình trạng:</strong> Mới </li>
+                        <li><strong>Bảo hành:</strong>  <%=product.quarranty_period%> tháng</li>
+                    <% } %>
+                    <%if(product.category_slug == 'monitor'){ %>
+                        <li><h3>Thông tin chung:</h3></li>
+                        <li><strong>Hãng sản xuất:</strong> <%=product.name_brand.charAt(0).toUpperCase() + product.name_brand.slice(1)%></li>
+                        <li><strong>Bảo hành:</strong>  <%=product.quarranty_period%> tháng</li>
+                        <li><strong>Hỗ trợ đổi mới trong 7 ngày.</strong></li>
+                    <% } %>
+                    <%if(product.category_slug == 'mousepad'){ %>
+                        <li><h3>Thông tin chung:</h3></li>
+                        <li><strong>Hãng sản xuất:</strong> <%=product.name_brand.charAt(0).toUpperCase() + product.name_brand.slice(1)%></li>
+                        <% for(var i=0;i<product.info.length;i++){ %>
+                            <% if(product.info[i].title.indexOf('Kích thước') >= 0){ %>
+                                <li><strong>Kích thước:</strong> <%=product.info[i].context[0]%></li>
+                                <% } %>
+                        <% } %>
+                        <li><strong>Tình trạng:</strong>  Mới</li>
+                    <% } %>
+                </ul>
+            </div>
+            <div class="discount">
+                <% if(product.category_slug == 'laptop'){ %>
+                    <h3>ƯU ĐÃI KHI MUA KÈM LAPTOP: </h3>
+                    <ul>
+                        <li><img src="/icon/star.png" alt="" class="icon-star"><p>Mua túi chống sốc chỉ với giá 49.000đ</p></li>
+                        <li><img src="/icon/star.png" alt="" class="icon-star"><p>Giảm ngay 100.000đ khi mua kèm Ram Laptop.</p></li>
+                        <li><img src="/icon/star.png" alt="" class="icon-star"><p>Giảm đến 200.000đ khi mua kèm Balo, túi chống sốc, phụ kiện.</p></li>
+                        <li><img src="/icon/star.png" alt="" class="icon-star"><p>Giảm ngay 30.000đ khi mua Đế tản nhiệt Laptop.</p></li>
+                    </ul>
+                    <% } %>
+            </div>
+        </div>
+    </div>
+    <div class="detail">
+        <div class="info-product">
+            <h2>Thông số kỹ thuật:</h2>
+            <table>
+                <% for(var i=0;i<product.info.length;i++){ %>
+                        <tr>
+                            <td class="td-title"><%=product.info[i].title%></td>
+                            <td>
+                                <% for(var j=0;j<product.info[i].context.length;j++){ %>
+                                    <span <%= product.info[i].context.length > 1 ? 'class=span-multiple':'' %>><%=product.info[i].context[j]%></span>
+                                <% } %>
+                            </td>
+                        </tr>
+                <% } %>
+            </table>
+        </div>
+        <div class="info-product-right">
+            <%if(product.category_slug != 'mousepad' && product.desc_short){ %>
+                <h2>Thông số kỹ thuật</h2>
+                <ul>
+                    <% for(var i=0;i<product.desc_short.length;i++){ %>
+                        <li>
+                            <p><%=product.desc_short[i].title%></p>
+                            <p><%=product.desc_short[i].content%></p>
+                        </li>
+                    <% } %>
+                </ul>
+            <% } %>
+            <h3>Gợi ý sản phẩm:</h3>
+            <% for(var i=0;i<list_suggest.length;i++){ %>
+                <a href="<%= '/product/' + list_suggest[i].id %>">
+                    <span>
+                        <img src="<%=list_suggest[i].url%>" alt="">
+                        <div class="name-and-price">
+                            <h4><%=list_suggest[i].name%></h4>
+                            <del><%= list_suggest[i].sale_price.toLocaleString('vi', { style: 'currency', currency: 'VND' }) %></del>
+                            <p><%= list_suggest[i].price.toLocaleString('vi', { style: 'currency', currency: 'VND' }) %></p>
+                        </div>
+                    </span>
+                </a>
+            <% } %>
+        </div>
+    </div>
+</main>

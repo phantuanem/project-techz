@@ -1,0 +1,47 @@
+<header>
+    <img src="https://file.hstatic.net/200000722513/file/banner_top_web_-_c0eec3-_1280x50_1cd8a40770b342fa8b1b98fb00196547.png" alt="" class="img-banner">
+    <nav>
+        <ul>
+            <li class="logo">
+                <a href="/">
+                    <image src="/logo.png" />
+                </a>
+            </li>
+            <li class="menu-category">
+                <img src="/icon/menu_lines_hamburger_icon.png" alt="" class="icon-menu-line">
+                <p>Danh mục</p>
+                <div class="menu-select">
+                    <a href="/pages/laptop"><img src="/icon/laptop_icon.png" alt=""><p>Laptop</p></a>
+                    <a href="/pages/monitor"><img src="/icon/monitor.png" alt=""><p>Màn hình</p></a>
+                    <a href="/pages/keyboard"><img src="/icon/keyboard_icon.png" alt=""><p>Bàn phím</p></a>
+                    <a href="/pages/headphone"><img src="/icon/headphone_audio_sound_ui_technology_icon.png" alt=""><p>Tai nghe</p></a>
+                    <a href="/pages/mouse"><img src="/icon/mouse_icon.png" alt=""><p>Chuột</p></a>
+                    <a href="/pages/mousepad"><img src="/icon/mousepad.png" alt=""><p>Lót chuột</p></a>
+                </div>
+            </li>
+            <li class="box-search">
+                <input type="text" placeholder="Tìm Kiếm" id="input-search">
+                <img src="/icon/search_strong_icon.png" alt="" class="icon-search">
+            </li>
+            <li class="icon-and-text">
+                <a id="a-cart" href="/cart">
+                    <img src="/icon/cart_shopping_icon.png" alt="" class="icon-cart">
+                    <p id="title-card">Giỏ hàng <span><%=user ? quantity_order:'0'%></span></p>
+                </a>
+            </li>
+            <%if(!user){%>
+                <li class="icon-user">
+                    <img src="/icon/profile_about_mobile ui_user_icon.png" alt="" class="icon-user">
+                    <p>Đăng nhập</p>
+                </li>
+            <%} else {%>
+                <li class="icon-user-login">
+                    <a href="<%='/profile'%>">
+                        <img src="/icon/profile_about_mobile ui_user_icon.png" alt="" class="icon-user">
+                        <p><%=user.name%></p>
+                    </a>
+                </li>
+            <%}%>
+        </ul>         
+    </nav>
+</header>

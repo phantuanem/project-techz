@@ -1,0 +1,27 @@
+<main>
+    <div class="main-menu">
+
+    </div>
+    <div class="container">
+        <% for(let product of list){ %>
+            <a href="/product/<%=product.id%>">
+                <div class="thumbnail" data-id="<%=product.id%>">
+                    <img src="<%=product.url%>" alt="">
+                    <h4 class="name"><%=product.name%></h4>
+                    <%if(product.price != 0){%>
+                        <del class="price"><%= product.price.toLocaleString('vi', { style: 'currency', currency: 'VND' }) %></del>
+                    <%}%>
+                    <div class="sale_price">
+                        <p><%= product.sale_price.toLocaleString('vi', { style: 'currency', currency: 'VND' }) %></p>
+                        <%if(product.price != 0){%>
+                            <span><%=((1 - (product.sale_price / product.price)).toFixed(2) * 100).toFixed(0)%>%</span>
+                        <%}%>
+                    </div>
+                </div>
+            </a>
+        <%}%>
+    </div>
+    <%if(count > 0){%>
+        <button id="more-product" data-category="<%=slug%>" data-brand="<%=brandID%>">Xem thêm <%=count%></button>
+    <%}%>
+</main>

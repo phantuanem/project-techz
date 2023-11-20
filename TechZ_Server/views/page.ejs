@@ -1,0 +1,64 @@
+<main>
+    <div class="main-menu">
+        <%if(slug=='laptop'){%>
+            <div class="custom-select" data-option="ram">
+                <select>
+                    <option value="all">RAM: Tất cả</option>
+                    <option value="all">RAM: Tất cả</option>
+                    <option value="4">RAM: 4GB</option>
+                    <option value="8">RAM: 8GB</option>
+                    <option value="16">RAM: 16GB</option>
+                </select>
+            </div>
+            <div class="custom-select" data-option="monitor">
+                <select>
+                    <option value="all">Màn hình: Tất cả</option>
+                    <option value="all">Màn hình: Tất cả</option>
+                    <option value="14">Màn hình: 14"</option>
+                    <option value="15.6">Màn hình: 15.6"</option>
+                    <option value="16">Màn hình: 16"</option>
+                </select>
+            </div>
+            <div class="custom-select" data-option="ssd">
+                <select>
+                    <option value="all">SSD: Tất cả</option>
+                    <option value="all">SSD: Tất cả</option>
+                    <option value="256">SSD: 256GB</option>
+                    <option value="512">SSD: 512GB</option>
+                    <option value="1">SSD: 1TB</option>
+                </select>
+            </div>
+        <%}%>
+    </div>
+    <div class="container">
+        <% for(let product of list){ %>
+            <a href="/product/<%=product.id%>">
+                <div class="thumbnail" data-id="<%=product.id%>">
+                    <img src="<%=product.url%>" alt="">
+                    <h4 class="name">
+                        <%=product.name%>
+                    </h4>
+                    <%if(product.price !=0){%>
+                        <del class="price">
+                            <%= product.price.toLocaleString('vi', { style: 'currency' , currency: 'VND' }) %>
+                        </del>
+                        <%}%>
+                            <div class="sale_price">
+                                <p>
+                                    <%= product.sale_price.toLocaleString('vi', { style: 'currency' , currency: 'VND' })
+                                        %>
+                                </p>
+                                <%if(product.price !=0){%>
+                                    <span>
+                                        <%=((1 - (product.sale_price / product.price)).toFixed(2) * 100).toFixed(0)%>%
+                                    </span>
+                                    <%}%>
+                            </div>
+                </div>
+            </a>
+            <%}%>
+    </div>
+    <%if(count> 0){%>
+        <button id="more-product" data-category="<%=slug%>" data-brand="<%=brandID%>">Xem thêm <%=count%></button>
+        <%}%>
+</main>

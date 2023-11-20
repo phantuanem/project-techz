@@ -1,0 +1,177 @@
+
+.box-order-detail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000073;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", Arial, sans-serif !important;
+}
+
+.order-detail-table {
+    padding: 1em;
+    background-color: white;
+}
+
+.box-pdf span {
+    display: flex;
+    margin-top: 0.5em;
+    justify-content: flex-end;
+}
+
+.box-pdf span p {
+    margin-right: 0.5em;
+}
+
+
+.box-pdf table td {
+    padding: 5px 15px;
+    font-size: 14px;
+}
+
+.order-detail-table button {
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 1em;
+    background-color: white;
+    border: 1px solid black;
+    padding: 0.5em 1em;
+}
+
+img.img-logo-bill {
+    height: 2em;
+    background-color: green;
+    padding: 10px;
+}
+
+.box-pdf-top {
+    display: grid;
+    margin-bottom: 1em;
+    grid-template-columns: 1fr 1fr;
+    align-items: end;
+    grid-gap: 1em;
+}
+
+.box-pd-border {
+    padding: 0.5em;
+    border: 1px solid black;
+}
+
+.box-pdf-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.price p {
+    padding: 8px 16px;
+    background-color: yellow;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.box-pdf-btn button:last-child {
+    margin-left: 8px;
+}
+
+table {
+    width: 100%;
+}
+
+thead {
+    background-color: #407d23;
+    color: white;
+}
+
+thead th {
+    padding: 0.5em;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 14px;
+}
+
+table td:nth-child(1),
+table td:nth-child(5),
+table td:nth-child(3) {
+    text-align: center;
+}
+
+table,
+th,
+td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+
+.table-bottom table,
+.table-bottom th,
+.table-bottom td {
+    border: 0px solid gray;
+    border-collapse: collapse;
+    text-align: right;
+    padding: 3px !important;
+}
+
+.box-pdf-info-left {
+    padding-right: 2em;
+}
+
+hr {
+    margin-top: 1em;
+}
+
+.box-pdf span {
+    font-size: 20px;
+    font-style: italic;
+    color: #850202;
+}
+
+.order-detail-table .box-pdf-btn button:first-child {
+    background-color: #4242ff;
+    color: white;
+}
+
+span.amount-small {
+    margin: 0;
+    margin-top: 0.5em;
+}
+
+span.amount-small p,
+span.amount-small h4 {
+    font-size: 16px;
+    color: black;
+    font-style: normal;
+}
+
+.table-bottom table tr:last-child {
+    font-size: 16px;
+}
+
+.table-bottom table tr:last-child h4 {
+    color: #850202;
+}
+
+.table-bottom {
+    margin-left: 50%;
+    margin-top: 1em;
+}
+
+.box-pdf-top-invoi-info-child {
+    text-align: center;
+}
+
+p.title-invoice {
+    font-size: 35px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.table-bottom td {
+    font-size: 18px !important;
+}

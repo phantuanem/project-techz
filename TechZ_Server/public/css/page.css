@@ -1,0 +1,168 @@
+main {
+    padding: 0 10%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 2em auto;
+    grid-gap: 1em;
+}
+
+.container a {
+    text-decoration: none;
+    color: black;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: all 0.4s;
+}
+
+.thumbnail:hover {
+    scale: 1.05;
+    box-shadow: 0px 0px 20px -15px black;
+}
+
+.thumbnail img {
+    width: 100%;
+    border-radius: 8px;
+    flex: 1;
+    object-fit: contain;
+}
+
+h4.name {
+    font-size: 15px;
+    margin: 5px;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    display: block;
+    display: -webkit-box;
+    color: black;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    max-height: 3rem;
+    text-overflow: ellipsis;
+    white-space: normal;
+    overflow: hidden;
+}
+
+.sale_price {
+    display: flex;
+    align-items: center;
+}
+
+.sale_price p {
+    color: #b14219;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.sale_price span {
+    margin-left: 5px;
+    padding: 1px 5px;
+    border: 1px solid black;
+    border-radius: 3px;
+}
+
+.thumbnail del {
+    font-size: 15px;
+    color: #292727;
+}
+
+button#more-product {
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 2em;
+    font-size: 1em;
+    padding: 0.5em 2em;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    cursor: pointer;
+}
+
+.main-menu {
+    margin: 0 auto;
+    display: flex;
+    max-width: 1200px;
+    margin-top: 1em;
+}
+
+.custom-select {
+    position: relative;
+    font-family: Arial;
+    width: 130px;
+    margin-right: 10px;
+}
+
+.custom-select select {
+    display: none;
+}
+
+.select-selected {
+    background-color: DodgerBlue;
+}
+
+.custom-select:nth-child(2) {
+    width: 165px;
+}
+
+.custom-select:nth-child(3) {
+    width: 140px;
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,
+.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+    user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+    position: absolute;
+    background-color: DodgerBlue;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+}

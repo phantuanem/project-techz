@@ -1,0 +1,367 @@
+main {
+    padding: 1em 10%;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ededed;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 20em 1fr;
+    grid-gap: 1em;
+}
+
+.main-left {
+    width: 100%;
+}
+
+.name-and-avata {
+    display: flex;
+    height: 3em;
+    padding: 1em;
+    background-color: white;
+    border-radius: 8px;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.name-and-avata img {
+    height: 100%;
+    margin-right: 1em;
+}
+
+ul.select {
+    background-color: white;
+    border-radius: 8px;
+}
+
+ul.select li {
+    display: flex;
+    height: 2em;
+    padding: 1em;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+ul.select li:hover {
+    background-color: #ededed;
+}
+
+ul.select li img {
+    height: 75%;
+    margin-right: 1em ;
+}
+
+.main-right {
+    background-color: white;
+    padding: 1em;
+    border-radius: 0.5em;
+}
+
+.main-right ul {
+    list-style: none;
+    margin: 0 10%;
+    margin-top: 2em;
+}
+
+p.title-info-user {
+    font-size: 22px;
+}
+
+.box-info-user ul li {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+.form-change-password {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin: 1em 0;
+}
+
+p.title-form-change-password {
+    text-align: left !important;
+    font-weight: bold;
+    margin-bottom: 5px;
+    width: 100% !important;
+}
+
+.form-change-password label {
+    margin: 3px 0;
+}
+
+
+.box-info-user ul li p{
+    width: 8em;
+    margin-right: 1.5em;
+    text-align: right;
+}
+
+.box-info-user button {
+    padding: 0.5em 2em;
+    font-size: 16px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.box-info-user input {
+    font-size: 16px;
+    padding: 8px;
+    outline: none;
+}
+
+ul.select a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-left: -1em;
+    align-items: center;
+    padding: 1em;
+    text-decoration: none;
+    color: black;
+}
+
+.select li.li-selected {
+    background-color: #d3d3d3;
+}
+
+.box-order ul li .li-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.box-order ul {
+    padding: 0;
+    margin: 0;
+}
+
+.box-order ul li {
+    padding: 0.5em 1em;
+    line-height: 1.75em;
+}
+
+.box-order strong {
+    color: #ad0909;
+}
+
+.div-address select {
+    font-size: 15px;
+    padding: 7px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+button#save-address,
+button#btn-update-phone {
+    display: block;
+    margin-top: 1em;
+    padding: 5px 2em;
+    background-color: white;
+    border: 1px solid black;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.div-address form select {
+    display: block;
+    margin: 1em 0;
+}
+
+.div-address form label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-size: 1em;
+}
+
+.div-address form textarea {
+    width: calc(100% - 1em);
+    padding: 0.5em;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+.title-form-update-address,
+p.title-form-update-phone {
+    font-size: 18px;
+}
+
+input#input-update-phone {
+    font-size: 1em;
+    padding: 0.5em;
+    width: 60%;
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid gray;
+}
+
+p.title-form-update-phone {
+    margin-bottom: 0.5em;
+}
+
+.main-right span {
+    display: flex;
+    margin-bottom: 0.5em;
+}
+
+.div-address span p:first-child {
+    width: 9em;
+}
+
+.div-address h3 {
+    margin-bottom: 0.5em;
+}
+
+.li-order-status {
+    display: flex;
+    align-items: center;
+}
+
+.li-order-status a {
+    padding: 5px 10px;
+    margin-left: 10px;
+    border: none;
+    background-color: #5353ff;
+    color: white;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.box-order-detail h4 {
+    text-align: end;
+    color: #ad2121;
+    margin-top: 5px;
+}
+
+.box-order-detail table {
+    margin: 10px 0;
+    width: 100%;
+}
+
+.box-order-detail table th {
+    text-align: center;
+    padding: 5px;
+}
+
+.box-order-detail table tr td {
+    padding: 5px 10px;
+}
+
+.box-order-detail table tr td:first-child,
+.box-order-detail table tr td:nth-child(3),
+.box-order-detail table tr td:nth-child(4) {
+    text-align: center;
+}
+
+.box-order-detail table,
+.box-order-detail table th,
+.box-order-detail table td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+
+.box-order-detail a {
+    text-decoration: none;
+    padding: 5px 15px;
+    border: 1px solid gray;
+    margin-bottom: 0.5em;
+    display: inline-block;
+    color: black;
+}
+
+.box-order-detail h3 {
+    margin: 0.5em 0;
+    text-align: center;
+}
+
+.box-order-detail table thead {
+    background-color: green;
+    color: white;
+}
+
+.box-order-detail table td a {
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: #4444db;
+}
+
+.box-order li hr {
+    display: block;
+    margin-top: 8px;
+}
+
+.box-order-detail h4 strong {
+    width: 10em;
+    display: inline-block;
+}
+
+.box-order-detail h4.h4-small {
+    color: #272727;
+    font-size: 15px;
+}
+
+a.cancel-order {
+    margin-top: 0.5em;
+    padding: 0.5em 1em;
+    background-color: #2fa9e7;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+div#btn-show-form-change-password {
+    margin-right: 10px;
+    border: 1px solid gray;
+    padding: 7px 16px;
+    cursor: pointer;
+}
+
+.form-change-password .title-and-close {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.btn-close-form-change-password {
+    color: blue;
+    cursor: pointer;
+}
+
+.form-update-address {
+    position: relative;
+    display: none;
+}
+
+button#btn-close-form-update-address {
+    padding: 5px 10px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 3px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+button#btn-show-form-update-address {
+    margin-bottom: 10px;
+    padding: 6px 16px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 10px;
+}

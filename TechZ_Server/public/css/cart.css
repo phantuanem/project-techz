@@ -1,0 +1,250 @@
+main {
+    padding: 1em 10%;
+    background-color: #e5e5e5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    padding: 1em;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.top img {
+    width: 1.5em;
+    height: 1.5em;
+    padding: 10px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 3em;
+    background-color: #e5e5e5;
+    border-radius: 3px;
+    position: relative;
+}
+
+.top span {
+    text-align: center;
+    margin-right: 3em;
+}
+
+.top span:last-child {
+    margin-right: 0;
+}
+
+.box img {
+    height: 100%;
+    margin-right: 0.5em;
+}  
+
+.box .item {
+    height: 8em;
+    display: flex;
+    padding: 1em;
+    text-decoration: none;
+    color: black;
+}
+
+.item-right {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.item-right a {
+    text-decoration: none;
+    color: black;
+}
+
+.name-and-price {
+    display: flex;
+    justify-content: space-between;
+}
+
+p.sale-price {
+    font-weight: bold;
+    font-size: 18px;
+    color: #cb3c07;
+}
+
+.item-price {
+    text-align: right;
+    margin-left: 1em;
+}
+
+.item-price del{
+    font-size: 15px;
+    color: #434343;
+}
+
+.quantity-and-trash img {
+    width: 1.3em;
+    height: 1.3em;
+    cursor: pointer;
+}
+
+.quantity-and-trash {
+    display: flex;
+    justify-content: space-between;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    border: 1px solid #9b9b9b;
+    border-radius: 3px;
+    margin-left: 1em;
+}
+
+.quantity p {
+    padding: 5px 15px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.quantity img {
+    width: 1em;
+    height: 1em;
+    padding: 5px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+hr {
+    margin-bottom: 1em;
+}
+
+.container ul {
+    list-style: none;
+}
+
+.container ul li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em 1em;
+}
+
+.container li button {
+    flex-grow: 1;
+    font-size: 18px;
+    padding: 0.75em;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    background-color: #e72323;
+    color: white;
+    cursor: pointer;
+}
+
+p#sum-price {
+    font-weight: bold;
+    font-size: 20px;
+    color: #cb3c07;
+}
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0000003f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader span {
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+    border: 5px solid white;
+    border-radius: 50%;
+    border-bottom: 5px solid transparent;
+    animation: 0.5s spin linear infinite;
+}
+
+.loader.loader-hidden {
+    display: none;
+}
+
+.container ul li a {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+}
+
+.title-cart-empty {
+    text-align: center;
+    padding: 2em 0;
+}
+
+.title-cart-empty p {
+    margin-bottom: 0.5em;
+}
+
+.title-cart-empty a {
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 16px;
+    padding: 0.5em 1em;
+    border: 2px solid blue;
+    display: inline-block;
+    color: blue;
+    font-family: 'Poppins', sans-serif;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.container ul li:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.container ul li:nth-child(2) input {
+    font-size: 1em;
+}
+
+.container ul li:nth-child(2) input {
+    font-size: 1em;
+    padding: 5px;
+    width: 50%;
+    margin-top: 5px;
+    outline: none;
+}
+
+.container ul li:nth-child(2) label {
+    color: blue;
+}
+
+.container form ul li:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.container form ul li:first-child input {
+    cursor: pointer;
+}

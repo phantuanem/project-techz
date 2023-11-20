@@ -1,0 +1,82 @@
+main {
+    padding: 1em 10%;
+    display: flex;
+    justify-content: center;
+    background-color: #ebebeb;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    padding: 2em;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.sum-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1em;
+}
+
+.sum-price h2 {
+    color: #cd2525;
+}
+
+.sum-price p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.input-group {
+    display: flex;
+    margin: 1em;
+    margin-right: 0;
+}
+
+.input-group input {
+    margin-right: 0.5em;
+    cursor: pointer;
+}
+
+button {
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    padding: 0.7em 0;
+    width: 100%;
+    background-color: #657eff;
+    color: white;
+    font-weight: bold;
+    margin-top: 0.5em;
+    border-radius: 5px;
+}
+
+.method-payment label:first-child {
+    color: #0a119b;
+    font-size: 18px;
+}
+
+p.title-address {
+    font-size: 18px;
+    margin-bottom: 0.5em;
+}
+
+.box-address span {
+    display: flex;
+    align-items: center;
+    margin: 0.5em 0;
+}
+
+.box-address span p:first-child,
+.box-address span h4:first-child {
+    width: 10em;
+}
+
+.box-address {
+    margin-bottom: 1em;
+}
+
+.sum-price.sum-price-small p {
+    font-size: 18px;
+}

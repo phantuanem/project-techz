@@ -1,0 +1,41 @@
+<main>
+    <div class="main-nav">
+        <ul>
+            <% for(brand of brands){ %>
+                <li>
+                    <a href="/page/<%=slug%>/<%=brand.id%>"><%=brand.name%></a>
+                </li>
+            <%}%>
+        </ul>
+    </div>
+    <%for(var products of list){%>
+        <div class="row">
+            <img src="https://w.ladicdn.com/s950x500/5bf3dc7edc60303c34e4991f/banner-14-20230524071630-_jtjf.png" alt="" class="img-banner">
+            <div class="box">
+                <%for(var product of products){%>
+                    <a href="/product/<%=product.id%>">
+                        <div class="thumbnail">
+                            <img src="<%=product.url%>" alt="">
+                            <h4 class="name"><%=product.name%></h4>
+                            <div class="thumbnail-item">
+                                <div class="thumbnail-price">
+                                    <%if(product.price != 0){%>
+                                        <del class="price"><%= product.price.toLocaleString('vi', { style: 'currency', currency: 'VND' }) %></del>
+                                    <%}%>
+                                    <div class="sale_price">
+                                        <p><%= product.sale_price.toLocaleString('vi', { style: 'currency', currency: 'VND' }) %></p>
+                                        <%if(product.price != 0){%>
+                                            <span><%=((1 - (product.sale_price / product.price)).toFixed(2) * 100).toFixed(0)%>%</span>
+                                        <%}%>
+                                    </div>
+                                </div>
+                                <button>mua ngay</button>
+                            </div>
+                        </div>
+                    </a>
+                <%}%>
+            </div>
+            <a href="/page/<%=slug%>/<%=products[0].brandID%>" class="a-more">Xem thêm</a>
+        </div>
+    <%}%>
+</main>

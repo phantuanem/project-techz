@@ -1,0 +1,96 @@
+<main>
+    <div class="container">
+        <div class="top">
+            <hr>
+            <span>
+                <img src="/icon/shop_buy_shopping_package_cart_icon.png" alt="">
+                <p>Giỏi hàng</p>
+            </span>
+            <span>
+                <img src="/icon/contact_icon.png" alt="">
+                <p>Thông tin đặt hàng</p>
+            </span>
+            <span>
+                <img src="/icon/credit_card_icon.png" alt="">
+                <p>Thanh toán</p>
+            </span>
+            <span>
+                <img src="/icon/shield_check_icon.png" alt="">
+                <p>Hoàn tất</p>
+            </span>
+        </div>
+        <div class="box">
+            <%for(let item of list){%>
+                <div class="item" data-id_cart_item="<%=item.id_cart_item%>">
+                    <img src="<%=item.url%>" alt="">
+                    <div class="item-right">
+                        <div class="name-and-price">
+                            <a href="/product/<%=item.id%>">
+                                <h4>
+                                    <%=item.name%>
+                                </h4>
+                            </a>
+                            <div class="item-price">
+                                <p class="sale-price">
+                                    <%= item.sale_price.toLocaleString('vi', { style: 'currency' , currency: 'VND' }) %>
+                                </p>
+                                <del>
+                                    <%= item.price.toLocaleString('vi', { style: 'currency' , currency: 'VND' }) %>
+                                </del>
+                            </div>
+                        </div>
+                        <div class="quantity-and-trash">
+                            <div class="quantity">
+                                <img src="/icon/minus_round_icon.png" alt="" id="icon-minus">
+                                <p>
+                                    <%=item.quantity%>
+                                </p>
+                                <img src="/icon/add_plus_new_icon.png" alt="" id="icon-plus">
+                            </div>
+                            <img class="delete-item" data-id="<%=item.orderID%>"
+                                src="/icon/trash_delete_bin_remove_icon.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+        </div>
+        <%if(list.length==0){%>
+            <div class="title-cart-empty">
+                <p>Giỏ hàng trống</p>
+                <a href="/">Tiếp tục mua hàng</a>
+            </div>
+            <%}else{%>
+                <hr>
+                <form action="/create-payment">
+                    <ul>
+                        <li>
+                            <span>
+                                <input type="radio" name="online_payment" value="true" checked>
+                                <label for="">Thanh toán trực tuyến</label>
+                            </span>
+                            <span>
+                                <input type="radio" name="online_payment" value="false">
+                                <label for="">Thanh toán khi nhận hàng</label>
+                            </span>
+                        </li>
+                        <li>
+                            <label for="">Mã giảm giá</label>
+                            <input id="input-code-voucher" type="text" name="voucher">
+                        </li>
+                        <li>
+                            <p>Phí vận chuyển</p>
+                            <p>Miễn phí</p>
+                        </li>
+                        <li>
+                            <p>Tổng tiền</p>
+                            <p id="sum-price">
+                                <%=sum_price.toLocaleString('vi', { style: 'currency' , currency: 'VND' })%>
+                            </p>
+                        </li>
+                        <li><button>đặt hàng ngay</button></li>
+                    </ul>
+                </form>
+                <%}%>
+    </div>
+    <div class="loader loader-hidden"><span></span></div>
+</main>

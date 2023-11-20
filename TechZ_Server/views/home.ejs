@@ -1,0 +1,108 @@
+<main>
+    <div class="box-banner">
+        <div class="main-menu">
+            <div class="main-menu-select">
+                <a href="/pages/laptop"><img src="/icon/laptop_icon.png" alt="">
+                    <p>Laptop</p>
+                </a>
+                <a href="/pages/monitor"><img src="/icon/monitor.png" alt="">
+                    <p>Màn hình</p>
+                </a>
+                <a href="/pages/keyboard"><img src="/icon/keyboard_icon.png" alt="">
+                    <p>Bàn phím</p>
+                </a>
+                <a href="/pages/headphone"><img src="/icon/headphone_audio_sound_ui_technology_icon.png" alt="">
+                    <p>Tai nghe</p>
+                </a>
+                <a href="/pages/mouse"><img src="/icon/mouse_icon.png" alt="">
+                    <p>Chuột</p>
+                </a>
+                <a href="/pages/mousepad"><img src="/icon/mousepad.png" alt="">
+                    <p>Lót chuột</p>
+                </a>
+            </div>
+        </div>
+        <div class="banner">
+            <div class="slide">
+                <div class="slide-img">
+                    <img src="https://file.hstatic.net/200000722513/file/banner_40_series_8b40b80bdde14bffa77d7d46c868344e.png"
+                        alt="">
+                    <img src="https://file.hstatic.net/200000722513/file/6_20f8dbf6da254794805e8449bcff3adb.png" alt="">
+                    <img src="https://file.hstatic.net/200000722513/file/7_4b67ad03076e499ebf6156124c65171a.png" alt="">
+                    <img src="https://file.hstatic.net/200000722513/file/11_85f12d0213fd4f49b5b92d4fd9b23695.jpg"
+                        alt="">
+                    <img src="https://file.hstatic.net/200000722513/file/back-to-school-31-7_9876ee7d039b453aaca4b06620c0b09d.png"
+                        alt="">
+                    <button class="btn-slide-left" onclick="plusDivs(-1)">&#10094;</button>
+                    <button class="btn-slide-right" onclick="plusDivs(1)">&#10095;</button>
+                </div>
+            </div>
+            <div class="slide-right">
+                <img src="https://file.hstatic.net/200000722513/file/bottom_1_-_laptop_van_phong_460758e56b684c108572a76fe1ae2610.png"
+                    alt="">
+                <img src="https://file.hstatic.net/200000722513/file/bottom_2_-_laptop_gaming_e0e3d09a913f4c2ea9014f1c6d6d8ecf.png"
+                    alt="">
+                <img src="https://file.hstatic.net/200000722513/file/banner_ban_phim_2d16777d888347a5a2b1272476c2c52e.png"
+                    alt="">
+            </div>
+        </div>
+        <div class="banner-small">
+            <img src="https://file.hstatic.net/200000722513/file/rog-ally-1000x320_c7b23a05f7004165bcf837e39d1011c1.png" alt="">
+            <img src="https://file.hstatic.net/200000722513/file/banner_phu_kien_128eb0a92a5146b88feb280f9726f78c.png" alt="">
+        </div>
+        <div class="banner-large">
+            <img src="https://file.hstatic.net/200000722513/file/laptop-gaming-b2s-footer_74fc78ac4fcd4deba9dbd44d2b51b37c.png" alt="">
+        </div>
+    </div>
+    <% for(products of list){%>
+        <%if(products.length > 0){%>
+            <div class="row">
+                <div class="title">
+                    <img src="data:image/svg+xml,%3Csvg width='20' height='36' viewBox='0 0 20 36' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.5035 15.4361H12.7737L12.769 15.4448H11.7322L18.6819 0L0.876617 19.807H7.67327L7.30312 20.7819L1.53845 36L18.5035 15.4361Z' fill='%23FFC306'/%3E%3Cpath d='M0.87663 19.807L0 20.7819H7.30314L7.67329 19.807H0.87663Z' fill='%23FFAD00'/%3E%3Cpath d='M12.769 15.4448L12.7737 15.4361H12.769L18.6819 0L11.7322 15.4448H12.769Z' fill='%23FFAD00'/%3E%3Cpath d='M20 15.4361H18.5035L1.53845 36L20 15.4361Z' fill='%23FFAD00'/%3E%3Cpath d='M17.6491 1.61224C17.6491 1.61224 2.40319 18.456 1.9086 19.3774C1.90939 19.3774 15.8681 4.08133 17.6491 1.61224Z' fill='%23FFEE12'/%3E%3Cpath d='M12.0802 15.6871C12.0802 15.6871 15.2491 15.444 17.7529 15.6871C17.7521 15.6871 14.8987 15.8964 12.0802 15.6871Z' fill='%23FFEE12'/%3E%3C/svg%3E%0A"
+                        alt="" class="img-icon">
+                    <h2>FLASH SALE CHÍNH HÃNG</h2>
+                    <div class="title-a">
+                        <a href="/pages/<%=products[0].slug%>">Xem thêm <strong>&#10140;</strong></a>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box-thumbnail-icon">
+                        <img src="/icon/arrow_back_left_navigation_previous_icon.png" alt="" id="icon-back">
+                    </div>
+                    <div class="box-thumbnail-icon">
+                        <img src="/icon/arrow_forward_navigation_next_right_icon.png" alt="" id="icon-next">
+                    </div>
+                    <div class="box-scroll">
+                        <div class="box-thumbnail">
+                            <% for(product of products){%>
+                                <a href="<%='/product/' + product.id%>">
+                                    <div class="thumbnail">
+                                        <img src="<%=product.url%>" alt="">
+                                        <h4 class="name">
+                                            <%=product.name%>
+                                        </h4>
+                                        <span></span>
+                                        <del class="price">
+                                            <%= product.price.toLocaleString('vi', { style: 'currency' , currency: 'VND' })
+                                                %>
+                                        </del>
+                                        <div class="sale_price">
+                                            <p>
+                                                <%= product.sale_price.toLocaleString('vi', { style: 'currency' ,
+                                                    currency: 'VND' }) %>
+                                            </p>
+                                            <span>
+                                                <%=((1 - (product.sale_price / product.price)).toFixed(2) *
+                                                    100).toFixed(0)%>%
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                                <%}%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <%}%>
+    <%}%>
+</main>
