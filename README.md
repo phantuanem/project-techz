@@ -5,7 +5,7 @@
 - Hệ quản trị cơ sở dữ liệu MySQL
 - Cổng thanh toán trực tuyến: VNPAY (Công ty Cổ phần Giải pháp Thanh toán Việt Nam)
 - Lưu trữ hình ảnh trên Google Drive: NodeJS tải ảnh lên Drive thông qua GOOGLE DRIVE API
-- Cho phép đăng nhập qua tài khoản Gmail
+- Cho phép đăng nhập bằng tài khoản Gmail
 
 ### Entity Relationship Diagram
 ![](erd.png)
