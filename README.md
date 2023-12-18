@@ -21,7 +21,7 @@
 ### Trang tìm kiếm sản phẩm
 ![](./images/Chức%20năng%20tìm%20kiếm.png)
 
-### Trang tìm kiếm sản phẩm
+### Trang xem giỏ hàng
 ![](./images/Giỏ%20hàng.png)
 
 ### Trang chi tiết đơn hàng đã đặt
