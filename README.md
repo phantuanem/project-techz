@@ -4,4 +4,4 @@ Website xây dựng với mục đích bán laptop, màn hình máy tính, bàn 
 Ngôn ngữ lập trình, framework: JavaScript, NodeJS, VueJS,… 
 Hệ quản trị cơ sở dữ liệu MySQL
 Cổng thanh toán trực tuyến: VNPAY (Công ty Cổ phần Giải pháp Thanh toán Việt Nam)
-!ERD](./erd.png)
+![](erd.png)
