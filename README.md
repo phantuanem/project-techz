@@ -8,7 +8,7 @@
 - Cho phép đăng nhập bằng tài khoản Gmail
 
 ## Trang chủ
-![](images/Trang chủ.png)
+![](./images/Trang%20chủ.png)
 
 ### Entity Relationship Diagram
 ![](erd.png)
