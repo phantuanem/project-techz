@@ -7,5 +7,8 @@
 - Lưu trữ hình ảnh trên Google Drive: NodeJS tải ảnh lên Drive thông qua GOOGLE DRIVE API
 - Cho phép đăng nhập bằng tài khoản Gmail
 
+## Trang chủ
+![](images/Trang chủ.png)
+
 ### Entity Relationship Diagram
 ![](erd.png)
