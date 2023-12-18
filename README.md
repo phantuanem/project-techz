@@ -7,8 +7,25 @@
 - Lưu trữ hình ảnh trên Google Drive: NodeJS tải ảnh lên Drive thông qua GOOGLE DRIVE API
 - Cho phép đăng nhập bằng tài khoản Gmail
 
-## Trang chủ
+## Trang bán hàng
+
+### Trang chủ
 ![](./images/Trang%20chủ.png)
 
-### Entity Relationship Diagram
+### Trang chi tiết sản phẩm
+![](./images/Chi%20tiết%20sản%20phẩm.png)
+
+### Trang Best Seller
+![](./images/Best%20seller%20theo%20danh%20mục.png)
+
+### Trang tìm kiếm sản phẩm
+![](./images/Chức%20năng%20tìm%20kiếm.png)
+
+### Trang tìm kiếm sản phẩm
+![](./images/Giỏ%20hàng.png)
+
+### Trang chi tiết đơn hàng đã đặt
+![](./images/Chi%20tiết%20đơn%20hàng%20đã%20đặt.png)
+
+## Entity Relationship Diagram
 ![](erd.png)
