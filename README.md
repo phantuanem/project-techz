@@ -27,5 +27,16 @@
 ### Trang chi tiết đơn hàng đã đặt
 ![](./images/Chi%20tiết%20đơn%20hàng%20đã%20đặt.png)
 
+## Trang quản lý
+
+### Dashboard
+![](./images/dashboard.png)
+
+### Quản lý đơn hàng
+![](./images/Quan%20ly%20don%20hang.png)
+
+### Quản lý Voucher
+![](./images/Quan%20ly%20Voucher.png)
+
 ## Entity Relationship Diagram
 ![](erd.png)
